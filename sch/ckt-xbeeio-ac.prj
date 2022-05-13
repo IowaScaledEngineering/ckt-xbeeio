@@ -1,0 +1,4 @@
+schematics ckt-xbeeio-ac.sch
+output-name ../pcb/ckt-xbeeio-ac
+skip-m4
+elements-dir ../../../footprints

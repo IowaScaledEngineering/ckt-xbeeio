@@ -1,0 +1,4 @@
+schematics ckt-xbeeio-nodemcu.sch
+output-name ../pcb/ckt-xbeeio-nodemcu
+skip-m4
+elements-dir ../../../footprints
