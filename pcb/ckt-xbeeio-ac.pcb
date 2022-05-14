@@ -1059,6 +1059,12 @@ Layer(4 "bottom silk" "silk")
 )
 Layer(5 "top silk" "silk")
 (
+	Line[1655.00mil 340.00mil 1655.00mil 370.00mil 10.00mil 20.00mil "clearline"]
+	Line[1640.00mil 355.00mil 1670.00mil 355.00mil 10.00mil 20.00mil "clearline"]
+	Line[2475.00mil 37.7299mm 2475.00mil 38.4919mm 10.00mil 20.00mil "clearline"]
+	Line[2460.00mil 38.1109mm 2490.00mil 38.1109mm 10.00mil 20.00mil "clearline"]
+	Line[2475.00mil 660.43mil 2475.00mil 690.43mil 10.00mil 20.00mil "clearline"]
+	Line[2460.00mil 675.43mil 2490.00mil 675.43mil 10.00mil 20.00mil "clearline"]
 	Text[2045.00mil 205.00mil 2 100 "3.3V" "clearline"]
 	Text[2645.00mil 205.00mil 2 100 "DIO0" "clearline"]
 	Text[2445.00mil 205.00mil 2 100 "DIO1" "clearline"]

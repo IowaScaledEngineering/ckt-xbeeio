@@ -1007,6 +1007,10 @@ Layer(4 "bottom silk" "silk")
 )
 Layer(5 "top silk" "silk")
 (
+	Line[1210.00mil 2065.00mil 1210.00mil 2095.00mil 10.00mil 20.00mil "clearline"]
+	Line[1195.00mil 2080.00mil 1225.00mil 2080.00mil 10.00mil 20.00mil "clearline"]
+	Line[190.00mil 2065.00mil 190.00mil 2095.00mil 10.00mil 20.00mil "clearline"]
+	Line[175.00mil 2080.00mil 205.00mil 2080.00mil 10.00mil 20.00mil "clearline"]
 	Text[205.00mil 2120.00mil 0 100 "ASSOC" "clearline"]
 	Text[26.8079mm 2120.00mil 0 100 "RSSI" "clearline"]
 	Text[330.00mil 180.00mil 0 100 "CKT-XBEEIO-NODEMCU   v1.0" "clearline"]
