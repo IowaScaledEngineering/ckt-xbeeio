@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "SparkFun RF")(type "KiCad")(uri "/tank/data/design/projects/SparkFun-KiCad-Libraries/Pre_v7/Footprints/RF.pretty")(options "")(descr ""))
+)
