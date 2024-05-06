@@ -53,21 +53,17 @@ CFLAGS  = $(INCLUDES) -Wall -Os -ffunction-sections -Wl,-gc-sections -std=gnu11
 COMPILE = avr-gcc $(DEFINES) $(CFLAGS) -mmcu=$(DEVICE)
 
 help:
-	@echo "make setup...... init/update git submodules"
 	@echo "make hex ....... build $(BASE_NAME).hex"
 	@echo "make flash ..... flash the firmware"
 	@echo "make fuse ...... flash the fuses"
 	@echo "make program ... flash fuses and firmware"
+	@echo "make size ...... memory usage"
 	@echo "make read ...... read the fuses"
 	@echo "make clean ..... delete objects and hex file"
 	@echo "make release.... produce release tarball"
 	@echo "make terminal... open up avrdude terminal"
 
 hex: $(BASE_NAME).hex
-
-setup:
-	git submodule init
-	git submodule update
 
 program: fuse flash
 
@@ -82,6 +78,9 @@ fuse:
 
 read:
 	$(AVRDUDE) -v
+
+size:
+	avr-size -C --mcu=$(DEVICE) $(BASE_NAME).elf
 
 # rule for uploading firmware:
 flash: $(BASE_NAME).hex
