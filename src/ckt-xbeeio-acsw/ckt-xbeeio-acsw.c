@@ -22,53 +22,7 @@ LICENSE:
 #include <stdlib.h>
 #include <avr/io.h>
 #include <avr/wdt.h>
-#include <avr/interrupt.h>
 #include <util/delay.h>
-
-typedef enum
-{
-	STATE_IDLE          = 0x00,
-} AcswState;
-
-AcswState state = STATE_IDLE;
-
-
-// ******** Start 100 Hz Timer, 0.16% error version (Timer 0)
-// If you can live with a slightly less accurate timer, this one only uses Timer 0, leaving Timer 1 open
-// for more advanced things that actually need a 16 bit timer/counter
-
-// Initialize a 100Hz timer for use in triggering events.
-// If you need the timer resources back, you can remove this, but I find it
-// rather handy in triggering things like periodic status transmissions.
-// If you do remove it, be sure to yank the interrupt handler and ticks/secs as well
-// and the call to this function in the main function
-
-volatile uint8_t ticks;
-volatile uint16_t decisecs;
-
-void initialize100HzTimer(void)
-{
-	// Set up timer 1 for 100Hz interrupts
-	TCNT0 = 0;
-	//OCR0A = 0xC2;
-	OCR0A = 0x6C; // Appropriate for 11.0592 MHz
-	ticks = 0;
-	decisecs = 0;
-	TCCR0A = _BV(WGM01);
-	TCCR0B = _BV(CS02) | _BV(CS00);
-	TIMSK0 |= _BV(OCIE0A);
-}
-
-ISR(TIMER0_COMPA_vect)
-{
-	if (++ticks >= 10)
-	{
-		ticks = 0;
-		decisecs++;
-	}
-}
-
-// End of 100Hz timer
 
 uint8_t readInput(uint8_t input)
 {
@@ -161,10 +115,6 @@ int main(void)
 	uint8_t val;
 	// Application initialization
 	init();
-
-	// Initialize a 100 Hz timer.  See the definition for this function - you can
-	// remove it if you don't use it.
-	initialize100HzTimer();
 
 	// Do something at startup and also give the XBee time to receive data from the switch
 	wdt_reset();
